@@ -1,40 +1,77 @@
 /* last rule wins // most specific rule wins*/
 
-/*Custom Properties*/
-:root {
-    --med-blue: #2B315E;
-    --dark-blue: #101439;
-    --gold: #FFBC61;
-}
-
-/* NORMALIZING RULES */
 body {
     margin: 0;
     padding: 0;
-    background-color: #3498db; /* Change this to your desired background color */
+    background-color: #3498db;
     overflow-x: auto;
   }
 
   header {
-    background-color: #333;
+    background-color: #0D1451;
     color: white;
     padding: 10px;
     text-align: center;
     font-family: 'Old Standard TT', serif;
+    width: 100%;
   }
 
   .cover-image {
-    width: 100%; /* Set width to 100% of the parent container */
-    height: 100%; /* Set a fixed height for the image */
-    overflow-x: auto; /* Enable horizontal scrolling for the container */
-    white-space: nowrap; /* Prevent line breaks */
+    position: relative;
+    width: 100vw; /* Set width to 100% of the viewport width */
+    height: 100vh; /* Set height to 100% of the viewport */
+    white-space: nowrap;
   }
 
   .cover-image img {
-    width: 150%; /* Set image width to be wider than the viewport */
-    height: 100%; /* Maintain aspect ratio based on the container's height */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%; /* Set image height to 100% of the viewport height */
     object-fit: cover; /* Ensure the entire image is covered */
     display: block;
+    z-index: 1; /* Ensure the background image is below the buttons */
   }
 
-/* END NORMALIZING RULES */
+  .overlay-image-container {
+    position: absolute;
+    width: 100%; /* Set width to 100% of the parent container */
+    height: 100%; /* Set height to 100% of the viewport height */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 3; /* Ensure the buttons are above the background image */
+    white-space: nowrap;
+  }
+
+  .overlay-image-container a {
+    position: absolute;
+    width: 20%; /* Set the width of each button as a percentage of the parent container's width */
+    height: 20%; /* Set the height of each button as a percentage of the parent container's height */
+    max-width: 3%; /* Set the maximum width for the buttons */
+    max-height: 6%; /* Set the maximum height for the buttons */
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  /* Adjust the top and left properties for each button individually */
+  .overlay-image-container a:nth-child(1) {
+    top: 19%;
+    left: 4%;
+  }
+
+  .overlay-image-container a:nth-child(2) {
+    top: 60%;
+    left: 12%;
+  }
+
+  .overlay-image-container a:nth-child(3) {
+    top: 32%;
+    left: 36%;
+  }
+
+  .overlay-image-container a:nth-child(4) {
+    top: 25%;
+    left: 76%;
+  }
