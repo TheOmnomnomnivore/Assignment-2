@@ -1,77 +1,371 @@
 /* last rule wins // most specific rule wins*/
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #3498db;
-    overflow-x: auto;
-  }
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #3498db; /* Change this to your desired background color */
+  font-family: 'Roboto', sans-serif; /* Set the font for the body text */
+  overflow-x: scroll; /* Always show the horizontal scrollbar */
+  min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+}
 
-  header {
-    background-color: #0D1451;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    font-family: 'Old Standard TT', serif;
-    width: 100%;
-  }
+header {
+  background-color: #0D1451;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Old Standard TT', serif;
+  justify-content: space-between; /* Align items at the ends */
+  align-items: center;
+  width: 100%; /* Set width to 100% of the viewport */
+  z-index: 2; /* Ensure the header is above the background image */
+}
 
-  .cover-image {
-    position: relative;
-    width: 100vw; /* Set width to 100% of the viewport width */
-    height: 100vh; /* Set height to 100% of the viewport */
-    white-space: nowrap;
-  }
+.cover-image {
+  position: relative;
+  width: 100%; /* Set width to 100% of the parent container */
+  min-height: 100vh; /* Set minimum height to 100% of the viewport height */
+  overflow: auto; /* Allow scrolling within the container if content exceeds the visible area */
+}
 
-  .cover-image img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%; /* Set image height to 100% of the viewport height */
-    object-fit: cover; /* Ensure the entire image is covered */
-    display: block;
-    z-index: 1; /* Ensure the background image is below the buttons */
-  }
+.cover-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Set image width to 100% of the parent container's width */
+  height: auto; /* Allow the height to adjust based on the width */
+  object-fit: cover; /* Ensure the entire image is covered */
+  display: block;
+  z-index: 1; /* Ensure the background image is below the buttons */
+}
 
-  .overlay-image-container {
-    position: absolute;
-    width: 100%; /* Set width to 100% of the parent container */
-    height: 100%; /* Set height to 100% of the viewport height */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 3; /* Ensure the buttons are above the background image */
-    white-space: nowrap;
-  }
+.overlay-image-container {
+  position: absolute;
+  width: 100%; /* Set width to 100% of the parent container */
+  height: 100%; /* Set height to 100% of the viewport height */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 3; /* Ensure the buttons are above the background image */
+}
 
-  .overlay-image-container a {
-    position: absolute;
-    width: 20%; /* Set the width of each button as a percentage of the parent container's width */
-    height: 20%; /* Set the height of each button as a percentage of the parent container's height */
-    max-width: 3%; /* Set the maximum width for the buttons */
-    max-height: 6%; /* Set the maximum height for the buttons */
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-  }
+.overlay-image-container a {
+  position: absolute;
+  width: 20%; /* Set the width of each button as a percentage of the parent container's width */
+  height: 20%; /* Set the height of each button as a percentage of the parent container's height */
+  max-width: 50px; /* Set the maximum width for the buttons */
+  max-height: 50px; /* Set the maximum height for the buttons */
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
 
-  /* Adjust the top and left properties for each button individually */
-  .overlay-image-container a:nth-child(1) {
-    top: 19%;
-    left: 4%;
-  }
 
-  .overlay-image-container a:nth-child(2) {
-    top: 60%;
-    left: 12%;
-  }
+/* Adjust the top and left properties for each button individually */
+.overlay-image-container a:nth-child(1) {
+  top: 17%;
+  left: 9%;
+}
 
-  .overlay-image-container a:nth-child(3) {
-    top: 32%;
-    left: 36%;
-  }
+.overlay-image-container a:nth-child(2) {
+  top: 55%;
+  left: 16%;
+}
 
-  .overlay-image-container a:nth-child(4) {
-    top: 25%;
-    left: 76%;
-  }
+.overlay-image-container a:nth-child(3) {
+  top: 30%;
+  left: 37%;
+}
+
+.overlay-image-container a:nth-child(4) {
+  top: 23%;
+  left: 74%;
+}
+
+#image-section {
+  height: calc(100vh - 80px); /* 100% viewport height minus header and footer heights */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Hide any overflowing content */
+  margin-bottom: 700px; /* Add margin to the bottom for body text */
+  min-height: 60vh; /* Set a minimum height for the image section */
+}
+
+#image-section img {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover; /* Cover the entire container while maintaining aspect ratio */
+}
+
+#image-section div {
+  position: absolute; /* Position the text absolute within the container */
+  top: 133%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the text precisely */
+  color: #fff; /* Set text color */
+  text-align: center; /* Center text horizontally */
+}
+
+footer {
+  background-color: #0D1451;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  height: 20px; /* Adjust footer height as needed */
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  margin-top: auto; /* Push the footer to the bottom */
+}
+
+#image-section div h2 {
+  font-size: 2em; /* Adjust the font size of the title */
+}
+
+#image-section div p {
+  font-size: 1.3em; /* Adjust the font size of the paragraph text */
+}
+
+#back-to-map {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px; /* Adjust margin or padding as needed */
+  font-size: 1em; /* Adjust the font size as needed */
+}
+
+  @media screen and (max-width:1700px) {
+
+    header {
+        background-color: #0D1451;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-family: 'Old Standard TT', serif;
+        width: 125%;
+      }
+
+      .overlay-image-container a:nth-child(1) {
+        top: 16%;
+        left: 8%;
+      }
+    
+      .overlay-image-container a:nth-child(2) {
+        top: 47%;
+        left: 16%;
+      }
+    
+      .overlay-image-container a:nth-child(3) {
+        top: 25%;
+        left: 37%;
+      }
+    
+      .overlay-image-container a:nth-child(4) {
+        top: 20%;
+        left: 73%;
+      }
+
+    }
+
+    @media screen and (max-width:1500px) {
+
+      header {
+          background-color: #0D1451;
+          color: white;
+          padding: 10px;
+          text-align: center;
+          font-family: 'Old Standard TT', serif;
+          width: 100%;
+        }
+  
+        .overlay-image-container a:nth-child(1) {
+          top: 14%;
+          left: 9%;
+        }
+      
+        .overlay-image-container a:nth-child(2) {
+          top: 42%;
+          left: 15%;
+        }
+      
+        .overlay-image-container a:nth-child(3) {
+          top: 23%;
+          left: 37%;
+        }
+      
+        .overlay-image-container a:nth-child(4) {
+          top: 17%;
+          left: 73%;
+        }
+  
+      }
+  
+      @media screen and (max-width:1200px) {
+
+        header {
+            background-color: #0D1451;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Old Standard TT', serif;
+            width: 100%;
+          }
+
+          .overlay-image-container a:nth-child(1) {
+            top: 10%;
+            left: 8%;
+          }
+        
+          .overlay-image-container a:nth-child(2) {
+            top: 34%;
+            left: 15%;
+          }
+        
+          .overlay-image-container a:nth-child(3) {
+            top: 18%;
+            left: 37%;
+          }
+        
+          .overlay-image-container a:nth-child(4) {
+            top: 14%;
+            left: 73%;
+          }
+    
+        }
+
+        @media screen and (max-width:950px) {
+
+          header {
+              background-color: #0D1451;
+              color: white;
+              padding: 10px;
+              text-align: center;
+              font-family: 'Old Standard TT', serif;
+              width: 100%;
+            }
+  
+            #image-section div {
+              position: absolute; /* Position the text absolute within the container */
+              top: 120%; /* Center vertically */
+              left: 50%; /* Center horizontally */
+              transform: translate(-50%, -50%); /* Center the text precisely */
+              color: #fff; /* Set text color */
+              text-align: center; /* Center text horizontally */
+
+            .overlay-image-container a {
+              position: absolute;
+              width: 20%; /* Set the width of each button as a percentage of the parent container's width */
+              height: 20%; /* Set the height of each button as a percentage of the parent container's height */
+              max-width: 40px; /* Set the maximum width for the buttons */
+              max-height: 40px; /* Set the maximum height for the buttons */
+              text-align: center;
+              text-decoration: none;
+              color: #fff;
+            }
+
+            .overlay-image-container a:nth-child(1) {
+              top: 8%;
+              left: 8%;
+            }
+          
+            .overlay-image-container a:nth-child(2) {
+              top: 26%;
+              left: 15%;
+            }
+          
+            .overlay-image-container a:nth-child(3) {
+              top: 14%;
+              left: 37%;
+            }
+          
+            .overlay-image-container a:nth-child(4) {
+              top: 10%;
+              left: 72%;
+            }
+      
+          }
+
+  @media screen and (max-width:700px) {
+
+    header {
+        background-color: #0D1451;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-family: 'Old Standard TT', serif;
+        width: 100%;
+      }
+
+      .overlay-image-container a {
+        position: absolute;
+        width: 20%; /* Set the width of each button as a percentage of the parent container's width */
+        height: 20%; /* Set the height of each button as a percentage of the parent container's height */
+        max-width: 30px; /* Set the maximum width for the buttons */
+        max-height: 30px; /* Set the maximum height for the buttons */
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .overlay-image-container a:nth-child(1) {
+        top: 6%;
+        left: 8%;
+      }
+    
+      .overlay-image-container a:nth-child(2) {
+        top: 20%;
+        left: 15%;
+      }
+    
+      .overlay-image-container a:nth-child(3) {
+        top: 10%;
+        left: 37%;
+      }
+    
+      .overlay-image-container a:nth-child(4) {
+        top: 8%;
+        left: 73%;
+      }
+
+    }
+
+    @media screen and (max-width:500px) {
+
+        header {
+            background-color: #0D1451;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-family: 'Old Standard TT', serif;
+            width: 320%;
+          }
+    
+          .overlay-image-container a:nth-child(1) {
+            top: 4%;
+            left: 7%;
+          }
+        
+          .overlay-image-container a:nth-child(2) {
+            top: 14%;
+            left: 14%;
+          }
+        
+          .overlay-image-container a:nth-child(3) {
+            top: 7%;
+            left: 36%;
+          }
+        
+          .overlay-image-container a:nth-child(4) {
+            top: 5%;
+            left: 71%;
+          }
+      
+        }
+      }
+
